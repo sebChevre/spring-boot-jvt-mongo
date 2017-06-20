@@ -89,8 +89,7 @@ public final class BearerToken {
             // Return the value as is. Note that it is not Base64-encoded.
             // See https://www.ietf.org/mail-archive/web/oauth/current/msg08489.html
             return matcher.group(1);
-        }
-        else {
+        } else {
             // Assume that the input is formatted in
             // application/x-www-form-urlencoded.
             return extractFromFormParameters(input);
@@ -106,15 +105,14 @@ public final class BearerToken {
                 continue;
             }
 
-            if (pair[0].equals("access_token") == false) {
+            if (!pair[0].equals("access_token")) {
                 continue;
             }
 
             try {
                 // URL-decode
                 return URLDecoder.decode(pair[1], "UTF-8");
-            }
-            catch (UnsupportedEncodingException e) {
+            } catch (UnsupportedEncodingException e) {
                 // This won't happen.
                 return null;
             }
