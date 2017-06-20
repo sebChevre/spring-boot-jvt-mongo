@@ -6,7 +6,7 @@
     <groupId>com.github.vlsidlyarevich</groupId>
     <artifactId>spring-boot-mongodb-jwt</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <name>Spring-Boot-MongoDB-JWT</name>
     <description>Base for Spring Boot projects with MongoDB and JWT authentication</description>
 
