@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * Created by sce on 20.06.2017.
  */
-public class BearerToken {
+final public class BearerToken {
 
     /**
      * Regular expression to parse {@code Authorization} header.
@@ -17,8 +17,7 @@ public class BearerToken {
             = Pattern.compile("^Bearer *([^ ]+) *$", Pattern.CASE_INSENSITIVE);
 
 
-    private BearerToken()
-    {
+    private BearerToken() {
     }
 
 
@@ -76,8 +75,7 @@ public class BearerToken {
      * @see <a href="http://tools.ietf.org/html/rfc6750"
      *      >RFC 6750 (OAuth 2.0 Bearer Token Usage)</a>
      */
-    public static String parse(String input)
-    {
+    public static String parse(final String input) {
         if (input == null)
         {
             return null;
@@ -103,8 +101,7 @@ public class BearerToken {
     }
 
 
-    private static String extractFromFormParameters(String input)
-    {
+    private static String extractFromFormParameters(final String input) {
         for (String parameter : input.split("&"))
         {
             String[] pair = parameter.split("=", 2);

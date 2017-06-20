@@ -16,8 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/auth")
-@Api(tags = "Authentification",value="Authentification", description="Operations liées à l'authentification",
-        produces = "application/json",consumes = "application/json")
+@Api(tags = "Authentification", value = "Authentification",
+         description = "Operations liées à l'authentification",
+         produces = "application/json", consumes = "application/json")
 public class AuthenticationController {
 
     private final TokenService tokenService;
@@ -27,7 +28,7 @@ public class AuthenticationController {
         this.tokenService = tokenService;
     }
 
-    @ApiOperation(value = "Authentification d'un utilisateur",response = LoginDTO.class)
+    @ApiOperation(value = "Authentification d'un utilisateur", response = LoginDTO.class)
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> authenticate(@RequestBody final LoginDTO dto) {
         final String token = tokenService.getToken(dto.getUsername(), dto.getPassword());

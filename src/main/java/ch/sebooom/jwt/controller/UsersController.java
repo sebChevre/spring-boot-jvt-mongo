@@ -1,7 +1,6 @@
 package ch.sebooom.jwt.controller;
 
-import ch.sebooom.jwt.converter.ConverterFacade;
-import ch.sebooom.jwt.model.Authority;
+
 import ch.sebooom.jwt.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.security.RolesAllowed;
+
 
 /**
  * Created by sce on 20.06.2017.

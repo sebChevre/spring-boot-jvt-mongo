@@ -9,7 +9,7 @@ public class LoginDTO implements Serializable {
 
     private static final long serialVersionUID = -4159366809929151486L;
 
-    @ApiModelProperty(notes = "Le nom d'utilisateur",required = true)
+    @ApiModelProperty(notes = "Le nom d'utilisateur", required = true)
     private String username;
     @ApiModelProperty(notes = "Le mopt de passe", required = true)
     private String password;
