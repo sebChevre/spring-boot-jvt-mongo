@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar target/spring-boot-mongodb-jwt-0.0.1.jar
+web: java -Dserver.port=$PORT -jar spring-boot-mongodb-jwt-0.0.1-SNAPSHOT.jar
