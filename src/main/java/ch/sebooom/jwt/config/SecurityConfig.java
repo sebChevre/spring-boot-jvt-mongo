@@ -49,16 +49,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
+        configure(auth);
     }
 
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
+        return authenticationManagerBean();
     }
 
     @Override
     public UserDetailsService userDetailsServiceBean() throws Exception {
-        return super.userDetailsServiceBean();
+        return userDetailsServiceBean();
     }
 }
