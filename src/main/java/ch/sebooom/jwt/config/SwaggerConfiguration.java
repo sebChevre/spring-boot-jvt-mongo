@@ -21,7 +21,8 @@ public class SwaggerConfiguration {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .select()                 .apis(RequestHandlerSelectors.basePackage("ch.sebooom.jwt.controller"))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("ch.sebooom.jwt.controller"))
                 .paths(regex("/api.*"))
                 .build()
                 .apiInfo(metaData());
@@ -34,7 +35,9 @@ public class SwaggerConfiguration {
                 "Spring Boot REST API for Online Store",
                 "1.0",
                 "Terms of service",
-                new Contact("Chèvre Sébastien", "https://springframework.guru/about/", "seb.chevre@gmail.com"),
+                new Contact("Chèvre Sébastien",
+                        "https://springframework.guru/about/",
+                        "seb.chevre@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0");
         return apiInfo;

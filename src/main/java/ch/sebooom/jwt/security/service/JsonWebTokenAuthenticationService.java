@@ -38,7 +38,8 @@ public class JsonWebTokenAuthenticationService implements TokenAuthenticationSer
     @Override
     public Authentication authenticate(final HttpServletRequest request) {
 
-        final String token = BearerToken.parse(request.getHeader(SecurityConstants.AUTH_HEADER_NAME));
+        final String token =
+                BearerToken.parse(request.getHeader(SecurityConstants.AUTH_HEADER_NAME));
         final Jws<Claims> tokenData = parseToken(token);
         if (tokenData != null) {
             User user = getUserFromToken(tokenData);

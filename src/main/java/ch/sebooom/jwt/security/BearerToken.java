@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * Created by sce on 20.06.2017.
  */
-final public class BearerToken {
+public final class BearerToken {
 
     /**
      * Regular expression to parse {@code Authorization} header.
@@ -76,8 +76,7 @@ final public class BearerToken {
      *      >RFC 6750 (OAuth 2.0 Bearer Token Usage)</a>
      */
     public static String parse(final String input) {
-        if (input == null)
-        {
+        if (input == null) {
             return null;
         }
 
@@ -86,14 +85,12 @@ final public class BearerToken {
         Matcher matcher = CHALLENGE_PATTERN.matcher(input);
 
         // If the input matches the pattern.
-        if (matcher.matches())
-        {
+        if (matcher.matches()) {
             // Return the value as is. Note that it is not Base64-encoded.
             // See https://www.ietf.org/mail-archive/web/oauth/current/msg08489.html
             return matcher.group(1);
         }
-        else
-        {
+        else {
             // Assume that the input is formatted in
             // application/x-www-form-urlencoded.
             return extractFromFormParameters(input);
@@ -102,27 +99,22 @@ final public class BearerToken {
 
 
     private static String extractFromFormParameters(final String input) {
-        for (String parameter : input.split("&"))
-        {
+        for (String parameter : input.split("&")) {
             String[] pair = parameter.split("=", 2);
 
-            if (pair == null || pair.length != 2 || pair[1].length() == 0)
-            {
+            if (pair == null || pair.length != 2 || pair[1].length() == 0) {
                 continue;
             }
 
-            if (pair[0].equals("access_token") == false)
-            {
+            if (pair[0].equals("access_token") == false) {
                 continue;
             }
 
-            try
-            {
+            try {
                 // URL-decode
                 return URLDecoder.decode(pair[1], "UTF-8");
             }
-            catch (UnsupportedEncodingException e)
-            {
+            catch (UnsupportedEncodingException e) {
                 // This won't happen.
                 return null;
             }
