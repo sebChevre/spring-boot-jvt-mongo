@@ -27,6 +27,9 @@ public class BasicUserService implements UserService {
 
     @Override
     public User find(final String id) {
+
+
+
         return repository.findOne(id);
     }
 

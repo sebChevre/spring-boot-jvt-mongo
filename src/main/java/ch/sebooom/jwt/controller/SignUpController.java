@@ -2,6 +2,7 @@ package ch.sebooom.jwt.controller;
 
 import ch.sebooom.jwt.converter.ConverterFacade;
 import ch.sebooom.jwt.dto.UserDTO;
+import ch.sebooom.jwt.model.User;
 import ch.sebooom.jwt.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,9 @@ public class SignUpController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> signUp(@RequestBody final UserDTO dto) {
+
+
+
         return new ResponseEntity<>(service.create(converterFacade.convert(dto)), HttpStatus.OK);
     }
 }

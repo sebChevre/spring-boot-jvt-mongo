@@ -1,6 +1,5 @@
 package ch.sebooom.jwt.controller;
 
-
 import ch.sebooom.jwt.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,28 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 /**
- * Created by sce on 20.06.2017.
+ * Created by sce on 21.06.2017.
  */
 @RestController
-@RequestMapping("/api/users")
-//@RolesAllowed("ROLE_ADMIN")
-public class UsersController {
+@RequestMapping("/api/user")
+public class UserController {
 
     private final UserService service;
 
     @Autowired
-    public UsersController(final UserService service) {
+    public UserController(final UserService service) {
         this.service = service;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> getUsersList() {
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getUserById(@PathVariable String userId) {
         return new ResponseEntity<>(
-                service.findAll(), HttpStatus.OK);
+                service.find(userId), HttpStatus.OK);
     }
-
 
 }
