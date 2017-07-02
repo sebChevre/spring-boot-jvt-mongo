@@ -41,6 +41,8 @@ public class JsonWebTokenAuthenticationService implements TokenAuthenticationSer
         final String token =
                 BearerToken.parse(request.getHeader(SecurityConstants.AUTH_HEADER_NAME));
         final Jws<Claims> tokenData = parseToken(token);
+
+
         if (tokenData != null) {
             User user = getUserFromToken(tokenData);
             if (user != null) {

@@ -1,5 +1,6 @@
 package ch.sebooom.jwt.config;
 
+import com.google.common.collect.Lists;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -39,7 +40,7 @@ public class SwaggerConfiguration {
                         "https://springframework.guru/about/",
                         "seb.chevre@gmail.com"),
                 "Apache License Version 2.0",
-                "https://www.apache.org/licenses/LICENSE-2.0");
+                "https://www.apache.org/licenses/LICENSE-2.0", Lists.newArrayList());
         return apiInfo;
     }
 }

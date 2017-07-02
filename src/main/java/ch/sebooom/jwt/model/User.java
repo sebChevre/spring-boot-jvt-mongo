@@ -1,6 +1,5 @@
 package ch.sebooom.jwt.model;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +20,15 @@ public class User extends BaseEntity implements UserDetails {
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
     private boolean isEnabled;
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
